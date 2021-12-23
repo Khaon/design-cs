@@ -73,6 +73,11 @@ public class ButtonTagHelper : BaseTagHelper
         output.AddClass(styleCssClass, HtmlEncoder.Default);
         output.Attributes.SetAttribute("type", Type.ToString().ToLowerInvariant());
 
+        if (!string.IsNullOrWhiteSpace(Id))
+        {
+            output.Attributes.Add("id", Id);
+        }
+
         if (Disabled)
         {
             output.Attributes.Add("disabled", "disabled");
