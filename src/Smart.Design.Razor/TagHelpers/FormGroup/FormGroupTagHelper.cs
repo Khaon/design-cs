@@ -27,9 +27,9 @@ public class FormGroupTagHelper : TagHelper
     public override void Process(TagHelperContext context, TagHelperOutput output)
     {
         output.ClearAllAttributes();
-        output.TagMode = TagMode.StartTagAndEndTag;
-
         var formGroup = _formGroupHtmlGenerator.GenerateFormGroup();
+        output.TagName = formGroup.TagName;
+        output.TagMode = TagMode.StartTagAndEndTag;
 
         output.MergeAttributes(formGroup);
 
