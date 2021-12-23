@@ -21,7 +21,7 @@ public class InputHtmlGenerator : BaseHtmlGenerator, IInputHtmlGenerator
 
         if (!string.IsNullOrWhiteSpace(id))
         {
-            inputTextTagBuilder.Attributes[id] = id;
+            inputTextTagBuilder.Attributes["id"] = id;
         }
 
         if (!string.IsNullOrWhiteSpace(inputName))
