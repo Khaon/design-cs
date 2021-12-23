@@ -10,7 +10,7 @@ namespace Smart.Design.Razor.TagHelpers.Grid;
 /// The component has <c>width</c> attributes.
 /// Documentation is available <see href="https://design.smart.coop/development/docs/o-grid.html">here</see>.
 /// </summary>
-[HtmlTargetElement(TagNames.GridColumnTagName, ParentTag = TagNames.GridTagName)]
+[HtmlTargetElement(TagNames.GridColumnTagName)]
 public class GridColumnTagHelper : TagHelper
 {
     private readonly IGridHtmlGenerator _gridHtmlGenerator;
