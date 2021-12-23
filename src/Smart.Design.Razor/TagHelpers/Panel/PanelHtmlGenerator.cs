@@ -11,27 +11,27 @@ public class PanelHtmlGenerator : IPanelHtmlGenerator
     {
         var panel = new TagBuilder("div");
         panel.AddCssClass("c-panel");
-
-        // div that contains the actual header html element.
-        var panelHeader = new TagBuilder("div");
-        panelHeader.AddCssClass("c-panel__header");
-
-        // Actual header title.
-        var headerTagBuilder = new TagBuilder("h2");
-        headerTagBuilder.AddCssClass("c-panel__title");
         if (!string.IsNullOrEmpty(header))
         {
-            headerTagBuilder.InnerHtml.SetContent(header);
-        }
+            // div that contains the actual header html element.
+            var panelHeader = new TagBuilder("div");
+            panelHeader.AddCssClass("c-panel__header");
 
-        panelHeader.InnerHtml.AppendHtml(headerTagBuilder);
+            // Actual header title.
+            var headerTagBuilder = new TagBuilder("h2");
+            headerTagBuilder.AddCssClass("c-panel__title");
+
+            headerTagBuilder.InnerHtml.SetContent(header);
+
+            panelHeader.InnerHtml.AppendHtml(headerTagBuilder);
+            panel.InnerHtml.AppendHtml(panelHeader);
+        }
 
         // div containing the body
         var panelBody = new TagBuilder("div");
         panelBody.AddCssClass("c-panel__body");
         panelBody.InnerHtml.AppendHtml(content);
 
-        panel.InnerHtml.AppendHtml(panelHeader);
         panel.InnerHtml.AppendHtml(panelBody);
 
         return panel;
